@@ -4,6 +4,8 @@ build_num=`cat build_num.txt`
 newnum=`expr $build_num + 1`
 echo $newnum >  build_num.txt
 
+build_dt=`date '+%Y-%m-%d'`
+
 export build_num=$newnum
 
 curl -L https://yt-dl.org/downloads/latest/youtube-dl -o youtube-dl
@@ -11,9 +13,10 @@ curl -L https://yt-dl.org/downloads/latest/youtube-dl -o youtube-dl
 
 docker build -t rc3labs/youtube-dl . \
  --label "build=${build_num}" \
+ --label "build_date"="${build_dt}" \
  --label "version=1.0" \
- --label "maintainer"="harvey.cary@rc3labs.com" \
+ --label "maintainer"="hcary@rc3labs.com" \
  --label "author"="Harvey Cary (hcary@rc3labs.com)" \
- --label "company"="rc3labs.com" 
+ --label "company"="rc3labs.com"
 
 rm youtube-dl
