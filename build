@@ -18,5 +18,5 @@ docker build -t rc3labs/youtube-dl . \
  --label "maintainer"="hcary@rc3labs.com" \
  --label "author"="Harvey Cary (hcary@rc3labs.com)" \
  --label "company"="rc3labs.com"
-
+ 
 rm youtube-dl

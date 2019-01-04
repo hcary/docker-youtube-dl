@@ -6,6 +6,6 @@ MYUID=`id -u $USER`
 DEST=/home/hcary
 
 #docker run -t -i -v /Users/hc1324:/home/hc1324  ubuntu-ydl /bin/bash
-docker run --name $USER.$$ -e "MYUSER=$MYUSER" -e "MYUID=$MYUID" -t -i --rm --mount 'type=bind,src=/Users/hcary,dst=/home/hcary' rc3labs/youtube-dl /bin/bash
+docker run --rm --name $USER.$$ -e "MYUSER=$MYUSER" -e "MYUID=$MYUID" -t -i --rm --mount 'type=bind,src=/Users/hcary,dst=/home/hcary' rc3labs/youtube-dl /bin/bash
 #docker run --name $USER.$$ -e "MYUSER=$MYUSER" -e "MYUID=$MYUID" -t -i --rm --mount 'type=bind,src=/Users/hcary,dst=/home/hcary' rc3labs/youtube-dl /bin/bash
 
