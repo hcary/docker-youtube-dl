@@ -2,10 +2,19 @@
 
 MYUSER=$USER
 MYUID=`id -u $USER`
-HDIR=`$HOME`
 DEST=/home/$MYUSER
 
 #docker run -t -i -v /Users/hc1324:/home/hc1324  ubuntu-ydl /bin/bash
-docker run --rm --name $USER.$$ -e "MYUSER=$MYUSER" -e "MYUID=$MYUID" -t -i --rm --mount 'type=bind,src=/Users/hcary,dst=/home/hcary' rc3labs/youtube-dl /bin/bash
+docker run \
+    --name $USER.$$ \
+    --hostname "YouTube-DL" \
+    -e "MYUSER=$MYUSER" \
+    -e "MYUID=$MYUID" \
+    -it \
+    --rm \
+    --mount type=bind,src="$(echo $HOME)",dst=/home/"$(echo $USER)" \
+    rc3labs/youtube-dl \
+    /bin/bash
+
 #docker run --name $USER.$$ -e "MYUSER=$MYUSER" -e "MYUID=$MYUID" -t -i --rm --mount 'type=bind,src=/Users/hcary,dst=/home/hcary' rc3labs/youtube-dl /bin/bash
 
