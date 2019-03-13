@@ -7,6 +7,9 @@ RUN apt-get install -y python ffmpeg curl handbrake-cli
 ADD youtube-dl /usr/bin/youtube-dl
 RUN chmod +x /usr/bin/youtube-dl
 
+ADD concatmp4.sh /usr/bin/concatmp4.sh
+RUN chmod +x /usr/bin/concatmp4.sh
+
 ADD extract-audio.sh /usr/bin/extract-audio.sh
 RUN chmod +x /usr/bin/extract-audio.sh
 
